@@ -1,36 +1,32 @@
 library(shiny)
 library(ggmap)
+library(mapview)
+library(sp) #required for spatial data frame
 
 # Define server logic required to plot various variables against mpg
 shinyServer(function(input, output) {
-  output$edumap=renderPlot( { 
-    load(file="~map.rda")
+   
+    #load(file="~map.rda")
     uow=c(lat=-34.405404, lon=150.87843)
     ubc=c(lat=49.93988, lon=-119.39557)
     uoa=c(lat=53.52322, lon=-113.52632)
     
-    edu_df=data.frame(Longitude=c(150.87843,-119.39557,-113.52632),
-                      Latitude=c(-34.405404,49.93988,53.52322),
-                      tcx=c(150,-130,-113.52632),
-                      tcy=c(-20,40,65),
-                      name=c("University of Wollongong, \n Mech. Eng. Study Abroad, 2009",
-                             "University of British Columbia\n Mech. Eng., M.A.Sc., 2013",
-                             "University of Alberta\nMech. Eng. B.Sc, 2010"),
-                      alignment=c(1,0,0),
-                      year=c(2009, 2010, 2013),
-                      degree=c("Study Abroad","B.Sc.", "M.A.Sc."))
+    coord=data.frame(Longitude=c(150.87843,-119.39557,-113.52632, -122.0607867),
+                     Latitude=c(-34.405404,49.93988,53.52322, 37.3868734))
     
-    p=ggmap(map)+
-      theme(axis.line=element_blank(),axis.text.x=element_blank(),
-            axis.text.y=element_blank(),axis.ticks=element_blank(),
-            axis.title.x=element_blank(),axis.title.y=element_blank())+
-      geom_point(aes(x=Longitude, y=Latitude), data=edu_df,
-                 alpha=0.75, color="red",size=4)+
-      annotate('text',x=edu_df$tcx, 
-               y=edu_df$tcy, 
-               label=edu_df$name, 
-               hjust=edu_df$alignment,
-               fontface="bold")
-    p
-    })
+    edu_df=data.frame(Institution=c("University of Wollongong",
+                                    "University of British Columbia",
+                                    "University of Alberta",
+                                    "Coursera"),
+                      GraduatingYear=c(2009, 2010, 2013,2015),
+                      Degree=c("Bacherlor of Science, Study Abroad",
+                               "Master of Applied Science in Mechanical Engineering",
+                               "Bachelor of Science in Mechanical Engineering",
+                               "Data Science Specialization, Remote [ONLINE]"))
+    
+    Education=SpatialPointsDataFrame(coords=coord,data= edu_df,
+                                     proj4string = CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0"))
+    p=mapview(Education)#,map.types="Thunderforest.TransportDark")#map.types="Stamen.Watercolor")
+
+    output$edumap=renderLeaflet( {p@map})
 })
