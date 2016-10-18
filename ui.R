@@ -5,9 +5,13 @@ library(leaflet)
 # Define UI for miles per gallon application
 fluidPage(theme = shinytheme("spacelab"),
   
-  # Application title
-  titlePanel("Nikolai Kummer, E.I.T", windowTitle = "Nikolai Kummer, E.I.T."),
+  # Header Panel
+  titlePanel("Nikolai Kummer", windowTitle = "Nikolai Kummer, E.I.T."),
   em("\"Mechanical engineer with background in robotics and data science\""),
+  p( a("email",href="mailto:nikolai.kummer@gmail.com"), " | " , a("website",href="http://edisondev.net/")),
+  
+  
+  #Main Body with Navigation Panel
   navlistPanel(
     tabPanel(title="Summary", 
              #Education code here
@@ -22,6 +26,7 @@ fluidPage(theme = shinytheme("spacelab"),
              #Education code here
              h3("Education"),
              leafletOutput(outputId="edumap")
+             
     ),
     tabPanel(title="Experience", 
              #Experience code here

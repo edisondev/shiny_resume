@@ -1,6 +1,7 @@
 library(shiny)
 library(ggmap)
 library(mapview)
+library(leaflet)
 library(sp) #required for spatial data frame
 
 # Define server logic required to plot various variables against mpg
@@ -18,15 +19,26 @@ shinyServer(function(input, output) {
                                     "University of British Columbia",
                                     "University of Alberta",
                                     "Coursera"),
-                      GraduatingYear=c(2009, 2010, 2013,2015),
+                      GraduatingYear=as.factor(c(2009, 2013, 2010,2015)),
                       Degree=c("Bacherlor of Science, Study Abroad",
                                "Master of Applied Science in Mechanical Engineering",
                                "Bachelor of Science in Mechanical Engineering",
-                               "Data Science Specialization, Remote [ONLINE]"))
+                               "Data Science Specialization, Remote [ONLINE]"),
+                      stringsAsFactors = FALSE)
     
     Education=SpatialPointsDataFrame(coords=coord,data= edu_df,
                                      proj4string = CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0"))
-    p=mapview(Education)#,map.types="Thunderforest.TransportDark")#map.types="Stamen.Watercolor")
+    
+    mapviewOptions(basemaps = c("OpenStreetMap", "Esri.WorldImagery"))
+    
+    p=mapview(Education,zcol=c("GraduatingYear","Degree"),
+              color = c("gold1", "orange2","red","darkred"),
+              burst=TRUE, 
+              legend=TRUE)#,
+              #popupOptions(closeButton = F)
+    )
+              #popup = popup(Education, zcol = c("GraduatingYear", "Degree"))
+
 
     output$edumap=renderLeaflet( {p@map})
 })
