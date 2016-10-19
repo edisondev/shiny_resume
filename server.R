@@ -24,6 +24,10 @@ shinyServer(function(input, output) {
                                "Master of Applied Science in Mechanical Engineering",
                                "Bachelor of Science in Mechanical Engineering",
                                "Data Science Specialization, Remote [ONLINE]"),
+                      Thesis=c("-",
+                               "Translational Visual Servoing Control of Quadrotor Helicopters",
+                               "A Robotic Soil Sample Collector for Tailings Ponds",
+                               "-"),
                       stringsAsFactors = FALSE)
     
     Education=SpatialPointsDataFrame(coords=coord,data= edu_df,
@@ -31,12 +35,11 @@ shinyServer(function(input, output) {
     
     mapviewOptions(basemaps = c("OpenStreetMap", "Esri.WorldImagery"))
     
-    p=mapview(Education,zcol=c("GraduatingYear","Degree"),
+    p=mapview(Education,zcol="GraduatingYear",
               color = c("gold1", "orange2","red","darkred"),
-              burst=TRUE, 
+              burst=FALSE,
               legend=TRUE)#,
-              #popupOptions(closeButton = F)
-    )
+  
               #popup = popup(Education, zcol = c("GraduatingYear", "Degree"))
 
 
