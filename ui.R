@@ -8,7 +8,7 @@ fluidPage(theme = shinytheme("spacelab"),
   # Header Panel
   titlePanel("Nikolai Kummer", windowTitle = "Nikolai Kummer, E.I.T."),
   em("\"Mechanical engineer with background in robotics and data science\""),
-  p( a("email",href="mailto:nikolai.kummer@gmail.com"), " | " , a("website",href="http://edisondev.net/")),
+  p( a("email",href="mailto:nikolai.kummer@gmail.com"), " | " , a("website",href="http://edisondev.net/")," | " , a("YouTube",href="https://www.youtube.com/channel/UC2P7h5Vik9tLafPQ2hlKVLA")),
   
   
   #Main Body with Navigation Panel
@@ -30,6 +30,16 @@ fluidPage(theme = shinytheme("spacelab"),
              
     ),
     tabPanel(title="Experience",
+             h4("Types of Experience"),
+             tags$div('style'="width:250px; background:#FAFAFA; border-style: solid; border-color:#BBBBBB ; border-width: 1px ; padding: 10px",
+                      tags$img(src="tag_eng_design.png", height="20px"),
+                      "Engineering Design",
+                      tags$img(src="tag_programming.png", height="20px"),
+                      "Programming",
+                      tags$img(src="tag_other.png", height="20px"),
+                      "Other"
+                      ),
+             br(),
              
              #RockLake Lodge
              br(),
@@ -39,9 +49,10 @@ fluidPage(theme = shinytheme("spacelab"),
                ),
                tags$div( 'style'="margin-left: 90px",
                          h3("General Manager, Operations"),
-                         h5("Rock Lake Lodge, 2014")
+                         h5("Rock Lake Lodge, 2016")
                )
              ),
+             tags$img(src="tag_other.png", height="20px"),
              tags$div('style'="clear: both"),
              tags$ul(tags$li("Responsible for guests and day-to-day operations at a remote wilderness hotel in Rock Lake Provincial Park."),
                      tags$li("Ensured adequate inventory levels and performed maintenance of critical systems."),
@@ -59,6 +70,7 @@ fluidPage(theme = shinytheme("spacelab"),
                  h5("Ulterra Drilling Technologies, 2015-2016")
                )
              ),
+             tags$img(src="tag_eng_design.png", height="20px"),tags$img(src="tag_programming.png", height="20px"),
              tags$div('style'="clear: both"),
              tags$ul(tags$li("Named inventor on two patentable mud motor transmission designs that increase torque capacity and reduce vibration (currently in the provisional patent stage)."),
                      tags$li("Designed, analyzed, and destructively tested mud motor transmission components."),
@@ -76,6 +88,7 @@ fluidPage(theme = shinytheme("spacelab"),
                          h5("University of British Columbia, 2014")
                )
              ),
+             tags$img(src="tag_programming.png", height="20px"),tags$img(src="tag_other.png", height="20px"),
              tags$div('style'="clear: both"),
                       tags$ul(tags$li("Responsible for preparing and teaching ENGR315 \"Fundamentals of Control Systems\" to a class of 105 third-year mechanical and electrical engineering students"),
                               tags$li("Taught the Matlab and Simulink programming languages to new users.")
@@ -92,6 +105,7 @@ fluidPage(theme = shinytheme("spacelab"),
                          h5("TTS Energy Canada, 2010")
                )
              ),
+             tags$img(src="tag_eng_design.png", height="20px"),
              tags$div('style'="clear: both"),
              tags$ul(tags$li("Designed and created technical drawings for top drive components and a test station."),
                      tags$li("Worked with a multi-disciplinary team to organize placement of hydraulic and electrical components on a high pressure unit skid."),
@@ -109,6 +123,7 @@ fluidPage(theme = shinytheme("spacelab"),
                          h5("Wenzel Downhole Tools, 2006-2010")
                )
              ),
+             tags$img(src="tag_eng_design.png", height="20px"),tags$img(src="tag_programming.png", height="20px"),
              tags$div('style'="clear: both"),
              tags$ul(tags$li("Developed a Drilling Jar Placement Program for downhole tools, which has been used to optimize jar placement within the bottom hole assembly."),
                      tags$li("Analyzed reports to quantify reliability of current Wenzel Products."),
@@ -117,11 +132,78 @@ fluidPage(theme = shinytheme("spacelab"),
     ),
      
 
-    tabPanel(title="Technical Skills", 
-             h3("3")
+    tabPanel(title="Professional Qualifications", 
+             h4("Recognition & Awards"),
+             tags$ul(tags$li('type'="square","Practical Teaching Certification, University of British Columbia, Vancouver, BC - ",tags$em("2013")),
+                     tags$li('type'="square","1st place: TrebEUSchet 2013 Trebuchet building competition ",tags$em("2013")),
+                     tags$li('type'="square","Teaching Assistant and Tutor Excellence Award, University of British Columbia, Vancouver, BC -",tags$em("2012")),
+                     tags$li('type'="square","Mechatronics Club Excellence Award, University of British Columbia, Vancouver, BC -",tags$em("2012"))
+             ),
+             br(),
+
+             h4("Memberships/Affiliation"),
+             tags$ul(tags$li('type'="square","Association of Professional Engineers and Geoscientists of Alberta (APEGA) - ",tags$em("2005-Present")),
+                     tags$li('type'="square","Robot Operating System (ROS) Edmonton - Organizer and Speaker - ",tags$em("2015-Present")),
+                     tags$li('type'="square","Institute of Electrical and Electronics Engineers (IEEE) - 2012")
+             ),
+             br(),
+             
+             h4("Academic Activities"),
+             tags$ul(tags$li('type'="square",tags$u("Teaching Assistantships, UBC, 2011-2013:"),
+                             tags$ul(
+                               tags$li("ENGR 256 - Statistics"),
+                               tags$li("ENGR 315 - Matlab Programming"),
+                               tags$li("ENGR 477 - Experiments and Report Writing)")
+                             )
+                      ),
+                     tags$li('type'="square",tags$u("Speaking Invitations"),
+                             tags$ul(
+                               tags$li("Programming in Matlab, UBC, 2012")
+                             )
+                     )
+                     
+                    ),
+             br(),
+             
+             h4("Presentations & Publications"),
+             #'type'="square",
+             tags$ol(tags$li("Kummer, Nikolai, and Homayoun Najjaran. \"Adaboost. MRT: Boosting regression for multivariate estimation.\" Artificial Intelligence Research 3.4 (2014); p.64."),
+                     tags$li("Kummer, N., Firouzi, H. & Najjaran, H. (2015). \"Autonomous UAV Controlled Collision Landing via eye-in-hand Visual Servoing. Canadian Aeronautics and Space Journal\" [SUBMITTED]."),
+                     tags$li("N. Kummer, C. Jee, J. Garbowski, E. Nowak, H. Najjaran, J. Richards, A. Suleman \"Design and Development of the Hardware for a Vision-based UAV Autopilot\", CSME Conference 2014, Toronto, Ontario, Canada."),
+                     tags$li("D. Kadish, N. Kummer, A. Dulic, H. Najjaran, \"The Empathy Machine - Generated Music to Augment Empathic Interactions\", Entertainment Computing-ICEC 2012, 461-464."),
+                     tags$li("D. Kadish, N. Kummer, A. Dulic, H. Najjaran, \"The Empathy Machine,\" Systems, Man, and Cybernetics (SMC), 2012 IEEE International Conference on vol., no., pp.2265, 2271, 14-17 Oct. 2012."),
+                     tags$li("N. Kummer, H. Firouzi, D. Jacobs, H. Najjaran \"Autonomous UAV Landing via eye-in-hand Visual Servoing\", presented at Unmanned Systems Canada Conference 2011, Halifax, Nova Scotia, Canada.")
+             )
     ),
+    
+    
+                     
     tabPanel(title="Contact Information", 
-             h3("3")
+             tags$div('style'="height:75%",
+               tags$a(href="http://www.edisondev.net/",
+                 tags$div( 'style'="width:45%;height:45%; float:left; border:solid ;border-color:#DDDDDD; margin-left: 2.5%",
+                           tags$img(src = "edisondev_link.png", width = "100%"),
+                         p('style'="color:#666666",em("http://edisondev.net/"),br(),"Personal website devoted to information and tutorials about microcontrollers and singleboard computers.")
+                         )
+                 ),
+               tags$a(href="https://www.youtube.com/channel/UC2P7h5Vik9tLafPQ2hlKVLA",
+                      tags$div( 'style'="width:45%; height:75%; float:left; border:solid ;border-color:#DDDDDD; margin-left: 2.5%",
+                                tags$img(src = "yt_link.png", width = "100%"),
+                                p('style'="color:#666666",em("Nikolai K."),br(),"YouTube channel devoted to videos about programming and robotics tutorials with a combined 250,000 views.")
+                      )
+               ),
+               br(),
+               div('style'="width:100%; height:75%; float:left",
+                   tags$a(href="mailto:nikolai.kummer@gmail.com",
+                          tags$div( 'style'="width:45%; height:75%;  border:solid ;border-color:#DDDDDD; margin-left: 27.5%;margin-top: 2.5% ",
+                                    tags$img(src = "email_link.png", width = "100%"),
+                                    p('style'="color:#666666; text-align:center",em("nikolai.kummer@gmail.com"))
+                          )
+                   )
+               )
+               
+               
+             )
     )
   )
   
