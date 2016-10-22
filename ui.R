@@ -17,9 +17,26 @@ fluidPage(theme = shinytheme("spacelab"),
              #Education code here
              h2("Nikolai Kummer, E.I.T."),
              em("\"A highly qualified engineering professional with a background in design, analysis and testing of mechanical and electro-mechanical tools and components. Background in robotics, data science, and oil-field technologies. Personable team player with excellent communication skills. Skilled lecturer and author of several engineering publications.\"",
-                style = "font-family: 'times'")
-             #br(),br(),br(),
-             #h4("Highlights")
+                style = "font-family: 'times'"
+                ),
+             br(),br(),br(),
+             h3("What I do:"),
+             tags$ul('style'="list-style-type:none",
+                     tags$li("Mechanical Engineering Design"),
+                     tags$li("Simulation"),
+                     tags$li("Programming"),
+                     tags$li("Signal Analysis"),
+                     tags$li("Electromechanical Systems")
+             ),
+             
+             br(),
+             h3("Achievement Highlights:"),
+             tags$ul('style'="list-style-type:none",
+               tags$li("2 preliminary patents for downhole tool transmisison"),
+               tags$li("6 Published articles in the field of robotics ")
+             )
+             
+             
              
     ),
     tabPanel(title="Education", 
@@ -133,6 +150,32 @@ fluidPage(theme = shinytheme("spacelab"),
      
 
     tabPanel(title="Professional Qualifications", 
+             h4("Technical Skills"),
+             tags$div('class'="row",'style'="width=100%",
+               tags$div('class'="col",'style'="width:45% ;float:left;  margin-left: 2.5%",#Outer div
+                        tags$u("Engineering Design:"),
+                        tags$ul('style'="list-style-type:none",
+                                tags$li(tags$img(src = "ico_solidworks.png", width = "24px"), "Solidworks"),
+                                tags$li(tags$img(src = "ico_inventor.png", width = "24px"), "Autodesk Inventor"),
+                                tags$li(tags$img(src = "ico_office.png", width = "24px"), "Microsoft Office")
+                        )
+               ),
+               tags$div('class'="col",'style'="width:45%;float:left; margin-left: 2.5%",#Outer div
+                        tags$u("Programming:"),
+                        tags$ul('style'="list-style-type:none",
+                                tags$li(tags$img(src = "ico_r.png", width = "24px"), "R"),
+                                tags$li(tags$img(src = "ico_matlab.png", width = "24px"), "Matlab"),
+                                tags$li(tags$img(src = "ico_simulink.png", width = "24px"), "Simulink"),
+                                tags$li(tags$img(src = "ico_python.png", width = "24px"), "Python"),
+                                tags$li(tags$img(src = "ico_arduino.png", width = "24px"), "Arduino")
+                        )
+               )
+             ),
+             
+             
+             br(),
+             
+             
              h4("Recognition & Awards"),
              tags$ul(tags$li('type'="square","Practical Teaching Certification, University of British Columbia, Vancouver, BC - ",tags$em("2013")),
                      tags$li('type'="square","1st place: TrebEUSchet 2013 Trebuchet building competition ",tags$em("2013")),
@@ -153,7 +196,7 @@ fluidPage(theme = shinytheme("spacelab"),
                              tags$ul(
                                tags$li("ENGR 256 - Statistics"),
                                tags$li("ENGR 315 - Matlab Programming"),
-                               tags$li("ENGR 477 - Experiments and Report Writing)")
+                               tags$li("ENGR 477 - Experiments and Report Writing")
                              )
                       ),
                      tags$li('type'="square",tags$u("Speaking Invitations"),
@@ -178,7 +221,9 @@ fluidPage(theme = shinytheme("spacelab"),
     
     
                      
-    tabPanel(title="Contact Information", 
+    tabPanel(title="Contact Information",
+             h3("Get in touch with me at:"),
+             
              tags$div('style'="height:75%",
                tags$a(href="http://www.edisondev.net/",
                  tags$div( 'style'="width:45%;height:45%; float:left; border:solid ;border-color:#DDDDDD; margin-left: 2.5%",
@@ -189,7 +234,7 @@ fluidPage(theme = shinytheme("spacelab"),
                tags$a(href="https://www.youtube.com/channel/UC2P7h5Vik9tLafPQ2hlKVLA",
                       tags$div( 'style'="width:45%; height:75%; float:left; border:solid ;border-color:#DDDDDD; margin-left: 2.5%",
                                 tags$img(src = "yt_link.png", width = "100%"),
-                                p('style'="color:#666666",em("Nikolai K."),br(),"YouTube channel devoted to videos about programming and robotics tutorials with a combined 250,000 views.")
+                                p('style'="color:#666666",em("Nikolai K."),br(),"YouTube channel devoted to videos about programming and robotics tutorials with a over 250,000 combined views.")
                       )
                ),
                br(),
